@@ -1,20 +1,5 @@
 const emojis = [
-    "🐷",
-    "🐷",
-    "🐸",
-    "🐸",
-    "🦐",
-    "🦐",
-    "🐵",
-    "🐵",
-    "🐭",
-    "🐭",
-    "🐞",
-    "🐞",
-    "🐙",
-    "🐙",
-    "🐢",
-    "🐢",
+    "🐷", "🐷", "🐸", "🐸", "🦐", "🦐", "🐵", "🐵", "🐭", "🐭", "🐞", "🐞", "🐙", "🐙", "🐢", "🐢"
 ];
 
 function playSound(nameAudio) {
@@ -30,13 +15,11 @@ function restartGame() {
     window.location.reload();
 }
 
-
 let openCards = [];
-
 let shuffleEmojis = emojis.sort(() => Math.random() - 0.5);
 
 function handleClick() {
-    if (openCards.length < 2) {
+    if (!this.classList.contains("boxOpen") && openCards.length < 2) {
         this.classList.add("boxOpen");
         openCards.push(this);
     }
@@ -70,7 +53,6 @@ function checkMatch() {
         }
     }
 }
-
 
 for (let i = 0; i < emojis.length; i++) {
     let box = document.createElement("div");

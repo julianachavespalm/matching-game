@@ -1,14 +1,34 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/styles/reset.css">
-    <link rel="stylesheet" href="./src/styles/main.css">
-    <title>Matching Game</title>
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./src/styles/reset.css">
+      <link rel="stylesheet" href="./src/styles/main.css">
+      <title>Matching Game</title>
+  </head>
+  <body>
+      
+    <header class="banner">
+        <h1 class="banner__logo">Matching Game</h1>
+    </header>
 
+    <main class="board">
+        <div class="board__game"></div>
+        <button class="board__reset" onclick="restartGame()">RESTART</button>
+    </main>
+
+    <footer class="social-media">
+        <p>© 2023 Juliana Chaves Palm</p>
+        <ul class="social-media__links" >
+        <li class="social-media__item">
+            <a href="https://www.linkedin.com/in/julianachavespalm" class="social-media__link"><i class="fa-brands fa-linkedin" title="Linkedin" aria-label="Linkedin"></i></a>
+        </li>
+        <li class="social-media__item"><a href="https://www.github.com/julianachavespalm" class="social-media__link">
+            <i class="fa-brands fa-github-alt" title="Github" aria-label="Github"></i></a></li>
+        </ul>
+    </p>
     <script src="./src/scripts/engine.js" defer></script>
-</body>
-</html>
+    <script src="https://kit.fontawesome.com/e0954b0c75.js" crossorigin="anonymous"></script>
+  </body>
+  </html>

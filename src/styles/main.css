@@ -2,23 +2,29 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     min-height: 100vh;
 
-    background: rgb(217,137,189);
-    background: -moz-linear-gradient(148deg, rgba(217,137,189,1) 25%, rgba(166,83,152,1) 51%, rgba(166,83,152,1) 72%, rgba(81,53,140,1) 100%);
-    background: -webkit-linear-gradient(148deg, rgba(217,137,189,1) 25%, rgba(166,83,152,1) 51%, rgba(166,83,152,1) 72%, rgba(81,53,140,1) 100%);
+    background-color: lightgreen;
+    background-image: url('../img/background.png');
 
     user-select: none;
+}
+
+.banner {
+    padding: 1.5rem;
+
+    background-color: #e60012;
+    
+
+    color: #ffffff;
+    text-shadow: 2px 2px 2px #000000; 
 }
 
 .banner__logo { 
     font-size: 3em;
     font-weight: 700;
-    color: #000000;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     letter-spacing: 0.1em;
 }
 
@@ -30,14 +36,12 @@ body {
     justify-content: center;
     align-items: center;
     padding: 30px 60px;
-    gap: 2rem;
-
-   
 }
 
     
 
     .board__reset {
+        margin: 1rem 0;
         padding: 1rem 2rem;
     
         border-radius: 1rem;
@@ -76,7 +80,8 @@ body {
     position: relative;
     margin: auto;
 
-    background-color: #ffffff;
+    background-color: #ffffff; /* Vermelho Mario */
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
 
     transform: rotateY(180deg);
     transition: 0.25s;
@@ -87,7 +92,7 @@ body {
     position: absolute;
     inset: 0;
 
-    background: #141414;
+    background: #dc291e;
     
     transition: 0.25s;
     transform: rotateY(0deg);
@@ -104,7 +109,7 @@ body {
 }
 
 .board__item.boxMatch {
-    filter: grayscale(100%)
+    filter: grayscale(100%);
 }
 
 .board__victory-message {
@@ -131,9 +136,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
    
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #f3c82c; /* Amarelo Mario */
+    color: #000;
 }
 
 .social-media__links {
@@ -150,7 +158,7 @@ body {
 .social-media__link {
     margin: 1rem 0;
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 

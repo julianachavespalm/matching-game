@@ -30,8 +30,7 @@ O objetivo deste jogo é simples: encontre o par de cada cartão, ao encontrar t
 
 ## Dependências e Como Rodar
 
-Não há dependências externas para este jogo. Para executar, basta clonar ou baixar o repositório e abrir o arquivo `index.html` em um navegador ou acessar o jogo na página [https://julianachavespalm.live/matching-game/](https://julianachavespalm.live/matching-game/)
-
+Não há dependências externas para este jogo. Para executar, basta clonar ou baixar o repositório e abrir o arquivo `index.html` em um navegador ou acessar o jogo na página http://julianachavespalm.github.io/matching-game/
 
 ## Como Contribuir
 

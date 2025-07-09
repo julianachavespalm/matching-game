@@ -3,9 +3,19 @@ const emojis = [
 ];
 
 function playSound(nameAudio) {
-    let audio = new Audio(`./src/audios/${nameAudio}.m4a`);
-    audio.volume = 0.2;
-    audio.play();
+    try {
+        const audio = new Audio(`src/audios/${nameAudio}.m4a`);
+        audio.volume = 0.2;
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.error("Erro ao reproduzir áudio:", error);
+            });
+        }
+    } catch (error) {
+        console.error("Erro ao criar áudio:", error);
+    }
 }
 
 const restartButton = document.querySelector('.board__reset');
@@ -19,13 +29,13 @@ let openCards = [];
 let shuffleEmojis = emojis.sort(() => Math.random() - 0.5);
 
 function handleClick() {
-    if (!this.classList.contains("boxOpen") && openCards.length < 2) {
+    if (!this.classList.contains("boxOpen") && !this.classList.contains("boxMatch") && openCards.length < 2) {
         this.classList.add("boxOpen");
         openCards.push(this);
-    }
 
-    if (openCards.length === 2) {
-        setTimeout(checkMatch, 500);
+        if (openCards.length === 2) {
+            setTimeout(checkMatch, 500);
+        }
     }
 }
 
@@ -34,8 +44,7 @@ function checkMatch() {
         if (openCards[0].innerHTML === openCards[1].innerHTML) {
             openCards[0].classList.add("boxMatch");
             openCards[1].classList.add("boxMatch");
-            playSound('correct').audio.volume = 0.5;
-            
+            playSound('correct');
         } else {
             openCards[0].classList.remove("boxOpen");
             openCards[1].classList.remove("boxOpen");
@@ -43,15 +52,25 @@ function checkMatch() {
         }
         openCards = [];
 
-        const matchedBoxes = document.querySelectorAll(".boxMatch").length;
-        const totalBoxes = emojis.length;
+        checkGameEnd();
+    }
+}
 
-        if (matchedBoxes === totalBoxes) {
-            const victoryMessage = document.createElement("div");
-            victoryMessage.textContent = "Parabéns!🏆 Você venceu!🥳";
-            victoryMessage.classList.add("board__victory-message");
-            document.body.appendChild(victoryMessage);
-        }
+function checkGameEnd() {
+    const matchedBoxes = document.querySelectorAll(".boxMatch").length;
+    const totalBoxes = emojis.length;
+
+    if (matchedBoxes === totalBoxes) {
+        document.querySelectorAll('.board__item').forEach(card => {
+            card.classList.add("board__item--disabled");
+        });
+
+        const victoryMessage = document.createElement("div");
+        victoryMessage.textContent = "End Game 🏆";
+        victoryMessage.classList.add("board__victory-message");
+        document.body.appendChild(victoryMessage);
+
+        playSound('correct');
     }
 }
 
